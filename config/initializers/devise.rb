@@ -234,7 +234,7 @@ Devise.setup do |config|
   # Set this configuration to false if you want /users/sign_out to sign out
   # only the current scope. By default, Devise signs out all scopes.
   # config.sign_out_all_scopes = true
-
+  config.secret_key = '471fdd14518eaa70734c42bfa5e42a6517373951172097f68e463ec9832f27d4ce79e26faa96568f8d6ec0cf4398cd909d0fdd22aecb7f7aa285d290c90860de'
   # ==> Navigation configuration
   # Lists the formats that should be treated as navigational. Formats like
   # :html, should redirect to the sign in page when the user does not have
