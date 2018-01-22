@@ -14,7 +14,8 @@
           <tr class="danger">
             <td>ID</td>
             <td>Name</td>
-            <td>Time</td>
+            <td>Created</td>
+            <td>Updated</td>
             <td>Total price(Vnd)</td>
             <td>Custommer</td>
             <td>Status</td>
@@ -30,8 +31,12 @@
                 Code: <%= booking.tour.tour_code %>
               </td>
               <td>
-                created: <%= booking.created_at %><br>
-                updated: <%= booking.updated_at %>
+                <%= booking.created_at.strftime("%H:%M") %><br>
+                <%= booking.created_at.strftime("%d/%m/%Y") %><br>
+              </td>
+              <td>
+                <%= booking.updated_at.strftime("%H:%M") %><br>
+                <%= booking.updated_at.strftime("%d/%m/%Y") %>
               </td>
               <td><%= number_to_vnd booking.total_price %></td>
               <%= form_for booking, url: booking_path(booking), method: :patch, remote: true do |f| %>

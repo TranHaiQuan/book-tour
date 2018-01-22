@@ -107,7 +107,7 @@ tbody {
   height: 100vh;
 }
 
-.modal-fix-length {
+.modal-lg.modal-fix-length {
   width: 1200px;
 }
 
@@ -123,5 +123,9 @@ h4.name-tour {
 }
 
 .pull-right {
-  background-color: $mexican-red-color;
+  background-color: $mexican-red-color !important;
+}
+
+.navbar-vertical div.affix-sidebar {
+  padding-right: 0px;
 }

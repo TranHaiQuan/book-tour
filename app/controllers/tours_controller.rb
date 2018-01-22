@@ -31,7 +31,7 @@ class ToursController < ApplicationController
       flash.now[:danger] = "Tour can't create"
     end
     @tour.tour_name = "Tour #{@tour.destination} #{@tour.number_day}N#{@tour.number_night}D: #{@tour.tour_name}"
-    @tour.tour_code = "TFE-#{Date.today.strftime("%d%m%Y")}-#{@tour.id}"
+    @tour.tour_code = "TFE-#{@tour.departure_date.to_date.strftime("%d%m%Y")}-#{@tour.id}"
     @tour.save
     @tours = Tour.all_tour.order("created_at DESC").page(params[:page]).per Settings.admins.per_page
   end

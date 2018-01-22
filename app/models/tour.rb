@@ -6,7 +6,7 @@ class Tour < ApplicationRecord
   has_one :sevice_attach, dependent: :destroy
   has_one :stipulate, dependent: :destroy
   has_one :plan
-  validates :tour_name, presence: true
+  validates :tour_name, :price, presence: true
   accepts_nested_attributes_for :plan, allow_destroy: true
   accepts_nested_attributes_for :sevice_attach, allow_destroy: true
   accepts_nested_attributes_for :stipulate, allow_destroy: true
@@ -16,5 +16,5 @@ class Tour < ApplicationRecord
   # mount_uploader :image, ImageUploader
   ratyrate_rateable "quality"
   scope :infotour, ->{select :id, :user_id, :tour_name, :pickup_place, :number_day,
-    :number_night, :price, :destination, :tour_code, :image}
+    :number_night, :price, :destination, :tour_code, :image, :departure_date, :return_date}
 end

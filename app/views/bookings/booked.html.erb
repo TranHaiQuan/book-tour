@@ -2,21 +2,29 @@
   <div class="container">
     <div class="row">
       <div id="flash"></div>
-      <table class="table table-striped custab">
+      <table class="table table-striped custab table-bordered table-lg">
         <thead>
           <tr>
+            <th class="custab">Tour Code</th>
             <th class="custab">Tour Name</th>
             <th class="custab"><%= t ".number_customer" %></th>
             <th class="custab">Price</th>
+            <th class="custab">Departure date</th>
+            <th class="custab">Return date</th>
+            <th class="custab">Pick up</th>
             <th class="custab">Status</th>
             <th class="text-center">Action</th>
           </tr>
         </thead>
         <% @books.each do |b| %>
           <tr>
-            <div class="col-md-4"><td><%= b.tour.tour_name %></td></div>
+            <td><%= b.tour.tour_code %></td>
+            <td><%= b.tour.tour_name %></td>
             <td><%= b.number_customer %></td>
             <td><%= number_to_vnd(b.total_price) %><%= t ".vnd" %></td>
+            <td><%= b.tour.departure_date.to_date.strftime("%d-%m-%Y") %></td>
+            <td><%= b.tour.return_date.to_date.strftime("%d-%m-%Y") %></td>
+            <td><%= b.tour.pickup_place %></td>
             <td>
               <% if b.status == "Unchecked" || b.status == "Declined" %>
                 <span class="label label-danger"><%= b.status %></span>

@@ -22,14 +22,21 @@
         <div class="showdes">
           <h1>
             <span class="glyphicon glyphicon-map-marker"></span>
-            <b><%= top.destination %></b>
+            <b><%= top.destination %></b><br>
+            <span class="glyphicon glyphicon-road"></span>
+            <%= top.departure_date.to_date.strftime("%d-%m-%Y") %>
           </h1>
+
           </div>
         </div>
         <div class="col-md-6">
           <h1><span class="glyphicon glyphicon-time"></span>
           <%= top.number_day %><%= t ".day" %>
-          <%= top.number_night %><%= t ".night" %></h1>
+          <%= top.number_night %><%= t ".night" %><br>
+          <span class="glyphicon glyphicon-repeat"></span>
+          <%= top.return_date.to_date.strftime("%d-%m-%Y") %>
+          </h1>
+
         </div>
         </div>
         <div class="row">
@@ -93,14 +100,19 @@
         <div class="showdes">
           <h1>
             <span class="glyphicon glyphicon-map-marker"></span>
-            <b><%= tour.destination %></b>
+            <b><%= tour.destination %></b><br>
+            <span class="glyphicon glyphicon-repeat"></span>
+            <%= tour.departure_date.to_date.strftime("%d-%m-%Y") %>
           </h1>
           </div>
         </div>
         <div class="col-md-6">
           <h1><span class="glyphicon glyphicon-time"></span>
           <%= tour.number_day %><%= t ".day" %>
-          <%= tour.number_night %><%= t ".night" %></h1>
+          <%= tour.number_night %><%= t ".night" %><br>
+          <span class="glyphicon glyphicon-repeat"></span>
+          <%= tour.return_date.to_date.strftime("%d-%m-%Y") %>
+          </h1>
         </div>
         </div>
         <div class="pi-price">

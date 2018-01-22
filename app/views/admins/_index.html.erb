@@ -7,20 +7,23 @@
     <td><%= user.address %></td>
     <td><%= user.sex %></td>
     <td>
-      <%= link_to edit_admin_path(user), class: "btn btn-success",
+      <%= link_to edit_admin_path(user), class: "btn btn-success", data: {toggle: "tooltip"}, title: "Edit",
         remote: true do %>
         <span class="glyphicon glyphicon-pencil"></span>
       <% end %>
       <% unless user.admin? %>
-        <%= link_to admin_booking_path(user), class: "btn btn-warning",
+        <%= link_to admin_booking_path(user), class: "btn btn-warning", data: {toggle: "tooltip"}, title: "Total tour of user booked",
           remote: true do %>
           <span class="glyphicon glyphicon-shopping-cart"></span>
-          <span class="badge"><%= Booking.list_booking(user.id).size %></span>
+          <span class="badge">
+            <%= Booking.list_booking(user.id).size %></span>
         <% end %>
       <% end %>
-      <%= link_to admin_delete_path(user), class: "btn btn-danger",
-        remote: true do %>
-        <span class="glyphicon glyphicon-trash"></span>
+      <% unless current_user.id == user.id %>
+        <%= link_to admin_delete_path(user), class: "btn btn-danger", data: {toggle: "tooltip"}, title: "Delete",
+          remote: true do %>
+          <span class="glyphicon glyphicon-trash"></span>
+        <% end %>
       <% end %>
     </td>
   </tr>

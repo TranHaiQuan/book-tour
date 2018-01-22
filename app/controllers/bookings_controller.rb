@@ -1,6 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :authenticate_user!
-  before_action :loadbooking, only: [:create, :show, :delete, :edit, :update, :index]
+  before_action :authenticate_user!, only: [:show, :create, :edit, :update, :delete, :destroy]
   before_action :non_admin
   def show
     @booking = Booking.find_by id: params[:id]
@@ -53,10 +52,6 @@ class BookingsController < ApplicationController
   end
 
   private
-
-  def loadbooking
-    @booking = Booking.includes(:user, :tour).find_by id: params[:id]
-  end
 
   def booking_params
     params.require(:booking).permit :tour_id, :number_customer, :total_price

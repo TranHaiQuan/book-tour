@@ -124,10 +124,22 @@
       set_return_day();
     });
     $("#tour_number_night").click(function(){
+      if($("#tour_number_night").val() > Number($("#tour_number_day").val()) + Number(1)){
+        $("#tour_number_night").val(Number($("#tour_number_day").val()) + Number(1));
+        window.alert("Number night only less than or equal to number day crease one");
+      } else if ($("#tour_number_night").val() < Number($("#tour_number_day").val()) - Number(1)) {
+        $("#tour_number_night").val(Number($("#tour_number_day").val()) - Number(1));
+        window.alert("Number night only greater than or equal to number day crease one");
+      }
       set_return_day();
     });
     $("#tour_departure_date").change(function(){
-      set_return_day();
+      if(new Date($("#tour_departure_date").val()) < new Date()) {
+        var myDate = new Date();
+        $("#tour_departure_date").val(myDate.toISOString().split("T")[0]);
+        window.alert("You must choose at the moment");
+        set_return_day();
+      }
     });
     function set_return_day(){
       var nights = parseInt($('#tour_number_night').val());

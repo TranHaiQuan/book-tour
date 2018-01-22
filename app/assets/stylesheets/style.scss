@@ -23,6 +23,9 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
+  background:url(https://i.imgur.com/nb9pNmc.jpg);
+  background-size: cover;
+  height: 100%;
 }
 
 .wrapper {
@@ -1218,7 +1221,7 @@ p:last-child {
   font-size: 20px;
   letter-spacing: 3px;
   a {
-    color: $white;
+    color: $elephant-color;
     text-decoration: none !important;
     &:hover {
       color: $black;
@@ -1252,4 +1255,12 @@ span {
 .showchecked {
   font-size: 20px;
   font-family: "Lato";
+}
+
+.table-bg {
+  background-color: $white;
+}
+
+.table-bordered.table-lg {
+  width: 1200px;
 }

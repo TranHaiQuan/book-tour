@@ -10,7 +10,7 @@
         <div class="row">
         <div class="col-xs-4 cpad">
           <%= rating_for @tour, "quality",disable_after_rate: false,
-            enable_half: true, half_show: true, id: "oos" %>
+            enable_half: true, half_show: true, id: "oos", star_path: "/images/ratyrate" %>
           <div id="thanks"></div>
         </div>
         <div class="col-xs-6"></div>
@@ -25,14 +25,18 @@
         <div class="col-md-3">
           <div class="showdes">
             <span class="glyphicon glyphicon-map-marker"></span>
-            <%= @tour.destination %>
+            <%= @tour.destination %><br>
+            <span class="glyphicon glyphicon-repeat"></span>
+            <%= @tour.departure_date.to_date.strftime("%d-%m-%Y") %>
           </div>
         </div>
         <div class="col-md-5">
           <div class="showtime">
             <span class="glyphicon glyphicon-time"></span>
             <%= @tour.number_day %><%= t ".day" %>
-            <%= @tour.number_night %><%= t ".night" %>
+            <%= @tour.number_night %><%= t ".night" %><br>
+            <span class="glyphicon glyphicon-repeat"></span>
+            <%= @tour.return_date.to_date.strftime("%d-%m-%Y") %>
           </div>
         </div>
         <div class="col-md-1"></div>
@@ -55,19 +59,20 @@
           </ul>
           <div class="tab-content">
             <div role="tabpanel" class="tab-pane active" id="insurrance">
-              <%= @tour.sevice_attach.insurrance %>
+
+              <%= @tour.sevice_attach.insurrance.to_s %>
             </div>
             <div role="tabpanel" class="tab-pane" id="meal">
-              <%= @tour.sevice_attach.meal %>
+              <%= @tour.sevice_attach.meal.to_s %>
             </div>
             <div role="tabpanel" class="tab-pane" id="tour-guide">
-              <%= @tour.sevice_attach.tour_guide %>
+              <%= @tour.sevice_attach.tour_guide.to_s %>
             </div>
             <div role="tabpanel" class="tab-pane" id="ticket">
-              <%= @tour.sevice_attach.entrance_tickets %>
+              <%= @tour.sevice_attach.entrance_tickets.to_s %>
             </div>
             <div role="tabpanel" class="tab-pane" id="car">
-              <%= @tour.sevice_attach.chuttle_car %>
+              <%= @tour.sevice_attach.chuttle_car.to_s %>
             </div>
           </div>
         </div>
@@ -80,10 +85,10 @@
           </ul>
           <div class="tab-content">
             <div role="tabpanel" class="tab-pane active" id="insurrance">
-              <%= @tour.stipulate.note %>
+              <%= @tour.stipulate.note.to_s %>
             </div>
             <div role="tabpanel" class="tab-pane" id="cancel">
-              <%= @tour.stipulate.cancel_tour %>
+              <%= @tour.stipulate.cancel_tour.to_s %>
             </div>
           </div>
         </div>
@@ -105,7 +110,7 @@
                   col-xs-2 submitcomment" %>
               <% end %>
             <% else %>
-              <%= link_to t(".login"), login_path, class: "btn btn-success logincomment" %>
+              <%= link_to t(".login"),  new_user_session_path, class: "btn btn-success logincomment" %>
             <% end %>
           </div>
         </div>
@@ -163,7 +168,7 @@
       </div>
     <% else %>
       <div class="borbook">
-        <%= link_to t(".booking"), login_path, class: "btn btn-danger
+        <%= link_to t(".booking"),  new_user_session_path, class: "btn btn-danger
           loginbook" %>
       </div>
     <% end %>
