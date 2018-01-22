@@ -15,6 +15,6 @@ class Tour < ApplicationRecord
       :price, :rate_avg, :created_by, :image}
   # mount_uploader :image, ImageUploader
   ratyrate_rateable "quality"
-  scope :infotour, ->{select :id, :user_id, :tour_name, :pick_up, :number_day,
+  scope :infotour, ->{select :id, :user_id, :tour_name, :pickup_place, :number_day,
     :number_night, :price, :destination, :tour_code, :image}
 end
