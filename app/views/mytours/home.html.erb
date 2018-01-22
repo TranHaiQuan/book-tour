@@ -1,0 +1,44 @@
+<section id="slider">
+  <div class="slider">
+    <div class="container">
+      <div class="row">
+        <div class="main_slider text-center">
+          <div class="col-md-12">
+            <div class="main_slider_content">
+              <h1><%= t ".lifetrip" %></h1>
+              <p><%= t ".quotelife" %></p>
+              <button href="" class="btn-primary1"><%= t ".clickhere" %></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="abouts" class="abouts">
+  <div class="container">
+    <div class="row">
+      <div class="abouts_content">
+        <div class="col-md-6">
+          <div class="row">
+            <div class="col-md-6">
+              <%= image_tag("img1.jpg", class: "img-responsive") %>
+              <%= image_tag("img2.jpg", class: "img-responsive") %>
+            </div>
+            <div class="col-md-6">
+              <%= image_tag("img3.jpg", class: "img-responsive") %>
+              <%= image_tag("img4.jpg", class: "img-responsive") %>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="single_abouts_text">
+            <h4><%= t ".lifetrip" %></h4>
+            <p><%= t ".tripquote" %></p>
+            <%= link_to t(".clickhere"), mytours_path, class: "btn btn-primary1" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
