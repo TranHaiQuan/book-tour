@@ -34,3 +34,7 @@ $(document).on('click', '#down', function() {
   customer=$('#customer').val()
   total_price_down();
 });
+
+setTimeout(function(){
+  $('.alert').fadeOut();
+}, 1000);

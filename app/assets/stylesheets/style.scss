@@ -1264,3 +1264,20 @@ span {
 .table-bordered.table-lg {
   width: 1200px;
 }
+
+div {
+  > .alert {
+    font-size: 20px;
+    color: $green;
+    height: 10px;
+    padding-top: 5px;
+    p {
+      a {
+        &:hover {
+          text-decoration: none;
+          color: $red;
+        }
+      }
+    }
+  }
+}
